@@ -8,7 +8,22 @@ var date = dayjs();
 $('#currentDay').text(date.format('dddd, MMM D'));
 
 
+
+
 $(function () {
+
+  var currentTime = dayjs();
+  $('.container-fluid px-5').text(currentTime.format('A'));
+  console.log(currentTime);
+  
+
+var saveUserData = document.querySelector('#btn saveBtn col-2 col-md-1')
+saveUserData.addEventListener('click', function(event) {
+  localStorage.setItem('col-8 col-md-10 description');
+  console.log(saveUserData);
+  event.preventDefault();})
+
+
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -33,3 +48,5 @@ $(function () {
 
 //for DOM
 });
+
+
