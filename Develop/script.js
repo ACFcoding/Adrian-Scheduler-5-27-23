@@ -9,14 +9,14 @@ $('#currentDay').text(date.format('dddd, MMM D'));
 
 
 
-
+//Adjusted to fit jQuery format
 $(document).ready(function () {
 
   var currentTime = dayjs();
   $('.container-fluid px-5').text(currentTime.format('A'));
   console.log(currentTime);
   
-
+//Added event listener for a 'click,' and the set to local storage. Get function comes later
 var saveUserData = document.querySelector('.saveBtn')
 saveUserData.addEventListener('click', function(event) {
   localStorage.setItem('.description');
@@ -44,6 +44,7 @@ saveUserData.addEventListener('click', function(event) {
   // TODO: Add code to display the current date in the header of the page.
 });
 
+//Remember to include the getItem
 
 
 //for DOM
