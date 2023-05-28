@@ -10,16 +10,16 @@ $('#currentDay').text(date.format('dddd, MMM D'));
 
 
 
-$(function () {
+$(document).ready(function () {
 
   var currentTime = dayjs();
   $('.container-fluid px-5').text(currentTime.format('A'));
   console.log(currentTime);
   
 
-var saveUserData = document.querySelector('#btn saveBtn col-2 col-md-1')
+var saveUserData = document.querySelector('.saveBtn')
 saveUserData.addEventListener('click', function(event) {
-  localStorage.setItem('col-8 col-md-10 description');
+  localStorage.setItem('.description');
   console.log(saveUserData);
   event.preventDefault();})
 
