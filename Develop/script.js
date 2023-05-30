@@ -30,14 +30,15 @@ renderUserData()
 var saveUserData = $(".saveBtn");
 saveUserData.on('click', function() {
   var textArea = this.parentElement.id;
-  //easier way to do this?
-  var textInput = this.previousElementSibling.value;
-  window.localStorage.setItem(textArea, textInput);
+  //easier way to do this? 
+  var userInput = this.previousElementSibling.value;
+  // var userInput = $('.descrition').value;
+    window.localStorage.setItem(textArea, userInput);
 })
 function renderUserData() {
   for (var i = 0; i < timeSpace.length; i++) {
     var listTime = Number(timeSpace[i].id);
-    timeSpace[i].children[1].value = window.localStorage.getItem(listTime);
+      timeSpace[i].children[1].value = window.localStorage.getItem(listTime);
   }
 }
 });
