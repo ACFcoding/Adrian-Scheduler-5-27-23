@@ -5,65 +5,41 @@ $(document).ready(function() {
 var date = dayjs();
 $('#currentDay').text(date.format('dddd, MMM D'));
 
+//grabs current hour and applies styling to time blocks accordingly
 var hour = dayjs().hour();
-console.log(hour);
-var timeOfDay = ['.time-block'];
-if (timeOfDay = hour - 9) {
-  setItem('.present')
-} else if (timeOfDay < hour - 9) {
-  setItem('.past')
+var timeSpace = $('.time-block');
+var textSpace = $('.col-8');
+
+for (var i = 0; i < timeSpace.length; i++) {
+  var listTime = Number(timeSpace[i].id);
+
+if (listTime < hour) {
+  textSpace[i].classList.add('past');
+} else if (listTime === hour) {
+textSpace[i].classList.add('present');
+} else {
+textSpace[i].classList.add('future');
 }
-else (timeOfDay > hour - 9) {
-  setItem('.future')
 }
-
-
-//call saved data to display what the user saved
-var savedData = localStorage.getItem('hour-9');
-$('#hour-9 textarea.description').text(savedData);
-var savedData = localStorage.getItem('hour-10');
-$('#hour-10 textarea.description').text(savedData);
-var savedData = localStorage.getItem('hour-11');
-$('#hour-11 textarea.description').text(savedData);
-var savedData = localStorage.getItem('hour-12');
-$('#hour-12 textarea.description').text(savedData);
-var savedData = localStorage.getItem('hour-13');
-$('#hour-13 textarea.description').text(savedData);
-var savedData = localStorage.getItem('hour-14');
-$('#hour-14 textarea.description').text(savedData);
-var savedData = localStorage.getItem('hour-15');
-$('#hour-15 textarea.description').text(savedData);
-var savedData = localStorage.getItem('hour-16');
-$('#hour-16 textarea.description').text(savedData);
-var savedData = localStorage.getItem('hour-17');
-$('#hour-17 textarea.description').text(savedData);
-
-
-
-
 
 //Adjusted to fit jQuery format
 $(document).ready(function () {
 
-
-
-//Added event listener for a 'click,' and the set to local storage. Get function comes later
-var saveUserData = document.querySelector('.saveBtn')
-saveUserData.addEventListener('click', function(event) {
-
-  var textInput = $(this).siblings('.description').val();
-  var timeBlock = $(this).parent().attr('id');
-
-  localStorage.setItem(timeBlock, textInput);
-
+renderUserData()
+//Keeps track in local storage of which hour will get saved
+var saveUserData = $(".saveBtn");
+saveUserData.on('click', function() {
+  var textArea = this.parentElement.id;
+  //easier way to do this?
+  var textInput = this.previousElementSibling.value;
+  window.localStorage.setItem(textArea, textInput);
+})
+function renderUserData() {
+  for (var i = 0; i < timeSpace.length; i++) {
+    var listTime = Number(timeSpace[i].id);
+    timeSpace[i].children[1].value = window.localStorage.getItem(listTime);
+  }
+}
 });
-
-
-
-
-
-});
-
-
 });
 
