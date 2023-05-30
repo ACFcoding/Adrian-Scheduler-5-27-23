@@ -7,14 +7,8 @@ $(document).ready(function() {
 var date = dayjs();
 $('#currentDay').text(date.format('dddd, MMM D'));
 
-var savedData = JSON.parse(localStorage.getItem('.description', 'id'));
-if (lastGrade !== null) {
-
-}
-else {
-  return;
-}
-
+var savedData = localStorage.getItem('timeBlock');
+console.log(savedData);
 
 
 //Adjusted to fit jQuery format
@@ -29,7 +23,7 @@ saveUserData.addEventListener('click', function(event) {
   var textInput = $(this).siblings('.description').val();
   var timeBlock = $(this).parent().attr('id');
 
-  localStorage.setItem(textInput, timeBlock);
+  localStorage.setItem(timeBlock, textInput);
 
 
 
@@ -66,3 +60,4 @@ saveUserData.addEventListener('click', function(event) {
 
 
 });
+
