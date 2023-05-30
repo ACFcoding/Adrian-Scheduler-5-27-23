@@ -8,10 +8,10 @@ var date = dayjs();
 $('#currentDay').text(date.format('dddd, MMM D'));
 
 //var hour = dayjs().hour();
-console.log(hour);
-if (hour) {
-  setItem('.present')
-}
+//console.log(hour);
+//if (hour) {
+ // setItem('.present')
+//}
 
 
 var savedData = localStorage.getItem('hour-9', 'hour-10', 'hour-11', 'hour-13', 'hour-14', 'hour-15', 'hour-16', 'hour-17');
