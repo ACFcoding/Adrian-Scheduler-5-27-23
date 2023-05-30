@@ -7,15 +7,23 @@ $(document).ready(function() {
 var date = dayjs();
 $('#currentDay').text(date.format('dddd, MMM D'));
 
-var savedData = localStorage.getItem('timeBlock');
+//var hour = dayjs().hour();
+console.log(hour);
+if (hour) {
+  setItem('.present')
+}
+
+
+var savedData = localStorage.getItem('hour-9', 'hour-10', 'hour-11', 'hour-13', 'hour-14', 'hour-15', 'hour-16', 'hour-17');
 console.log(savedData);
+
 
 
 //Adjusted to fit jQuery format
 $(document).ready(function () {
 
 
-  
+
 //Added event listener for a 'click,' and the set to local storage. Get function comes later
 var saveUserData = document.querySelector('.saveBtn')
 saveUserData.addEventListener('click', function(event) {
